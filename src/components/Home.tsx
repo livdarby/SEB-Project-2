@@ -7,9 +7,13 @@ function Home() {
     <>
       <section className="section">
         <div className="container">
-          <div className="columns">
-            <About />
-            <Instructions />
+          <div className="columns is-half">
+            <div className="column is-half">
+              <About />
+            </div>
+            <div className="column is-half">
+              <Instructions />
+            </div>
           </div>
         </div>
       </section>
