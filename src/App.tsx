@@ -1,17 +1,23 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
+
+import Navbar from "./components/Navbar"
+import Home from "./components/Home"
+import Quiz from "./components/Quiz"
 
 function App() {
   return (
-    <>
-      <h1>Hello everybody</h1>
-      <p>Making a change</p>
-    </>
-  );
-function App(){
-  
+    <Router>
+      <Navbar />
+      <main>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/quiz" element={<Quiz />} />
+        </Routes>
+      </main>
+    </Router>
+  )
 
-  return <h1>Hello world</h1>
-  <p>Hi Liv, don't mind me, I'm just making some changes.</p>
 }
 
 export default App;
