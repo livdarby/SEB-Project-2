@@ -1,13 +1,16 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import About from "./About";
 import Instructions from "./Instructions";
+import QuizButton from "./QuizButton";
 
 function Home() {
+
   return (
     <>
       <section className="section">
         <div className="container">
-          <div className="columns is-half">
+          <div className="columns">
             <div className="column is-half">
               <About />
             </div>
@@ -15,7 +18,7 @@ function Home() {
               <Instructions />
             </div>
           </div>
-        </div>
+           </div> 
       </section>
     </>
   );

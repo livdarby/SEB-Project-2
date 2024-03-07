@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Routes } from "react-router-dom"
 
 import Navbar from "./components/Navbar"
 import Home from "./components/Home"
-import Quiz from "./components/Quiz"
+import QuizPage from "./components/QuizPage"
+import QuizButton from "./components/QuizButton";
 
 function App() {
   return (
@@ -11,8 +12,8 @@ function App() {
       <Navbar />
       <main>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/" element={<><Home /> <QuizButton /></>} />
+          <Route path="/quiz" element={<QuizPage />} />
         </Routes>
       </main>
     </Router>
