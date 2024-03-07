@@ -3,7 +3,7 @@ import React from "react";
 function DifficultyDropdown() {
   return (
     <>
-      <div className="dropdown is-active">
+      <div className="dropdown">
         <div className="dropdown-trigger">
           <button
             className="button"
