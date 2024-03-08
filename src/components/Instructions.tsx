@@ -1,17 +1,26 @@
 function Instructions() {
- return (
-   <>
-     <div className="card">
-       <div className="card-header">
-         <h3 className="card-header-title">Instructions</h3>
-       </div>
-       <div className="p-5 is-hidden">
-        <p>Here are some instructions. We will change this text later after we've done all the hard parts.</p> <br />
-        <p>Here are some more instructions.</p>
-    </div>
-     </div>
-   </>
- );
+  return (
+    <>
+      <div className="card">
+        <div className="card-header has-background-primary">
+          <h3 className="card-header-title is-centered has-text-white">
+            Instructions
+          </h3>
+        </div>
+        <div className="p-5 has-text-centered">
+          <p>
+            Click the button below to go to the quiz.
+          </p>
+          <br />
+          <p>
+            Think carefully about your answers.. once you've selected your
+            answer, it's locked in and cannot be changed! Once you've attempted
+            all ten questions, click Reveal Score to find out how you did.
+          </p>
+        </div>
+      </div>
+    </>
+  );
 }
 
 export default Instructions;

@@ -1,17 +1,27 @@
 function About() {
-    return (
-<>
-<div className="card">
-    <div className="card-header">
-        <h3 className="card-header-title">About</h3>
-    </div>
-    <div className="p-5 is-hidden">
-        <p>Welcome to our lovely quiz. We will change this text later after we've done all the hard parts.</p> <br />
-        <p>To make our lovely quiz, we have used an API called Open Trivia Database. You can find it at https://opentdb.com/api_config.php</p>
-    </div>
-</div>
-</>
-    )
+  return (
+    <>
+      <div className="card">
+        <div className="card-header has-background-primary">
+          <h3 className="card-header-title is-centered has-text-white">About</h3>
+        </div>
+        <div className="p-5">
+          <div className="paragraphs has-text-centered">
+            <p>Welcome to Catherine and Liv's quiz! </p> <br />
+            <p>
+              This general knowledge quiz generates 10 random questions each
+              time you play and has been built using the{" "}
+              <a href="https://opentdb.com/api_config.php">
+                Open Trivia Database API.
+              </a>
+            </p>
+            <br />
+            <p>Happy quizzing!</p>
+          </div>
+        </div>
+      </div>
+    </>
+  );
 }
 
-export default About
+export default About;
