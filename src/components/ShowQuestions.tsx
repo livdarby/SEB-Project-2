@@ -31,8 +31,8 @@ function ShowQuestions({
     <div className="container mb-6">
       {/* <h6 className="title">{question}</h6> */}
       <div className="card">
-        <div className="card-header">
-          <div className="card-header-title">{question}</div>
+        <div className="card-header has-background-link-light">
+          <div className="card-header-title is-centered">{question}</div>
         </div>
         <div className="card-content">
           <div className="control">

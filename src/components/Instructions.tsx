@@ -1,7 +1,7 @@
 function Instructions() {
   return (
     <>
-      <div className="card">
+      <div className="card homepage">
         <div className="card-header has-background-primary">
           <h3 className="card-header-title is-centered has-text-white">
             Instructions

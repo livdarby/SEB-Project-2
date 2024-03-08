@@ -13,6 +13,8 @@ function QuizPage() {
 
   const [numberOfAnswers, setNumberOfAnswers] = React.useState(0);
 
+  const [buttonIsClicked, setButtonIsClicked] = React.useState(false)
+
   function handlePlayerScoreIncrease() {
     setPlayerScore(playerScore + 1);
   }
@@ -30,6 +32,7 @@ function QuizPage() {
   // 3) object shape with id property, isCorrect
 
   function handleGenerateQuizClick() {
+    setButtonIsClicked(true)
     fetchQuiz();
     setRevealScore(false);
     setPlayerScore(0);
@@ -46,30 +49,31 @@ function QuizPage() {
 
   return (
     <>
+    <body className="background-repeat">         
       <section className="section">
-        <div className="container">
-          <div className="columns">
+        <div className="container has-text-centered">
+          {/* <div className="columns">
             <div className="column is-3">
               <CategoryDropdown />
             </div>
             <div className="column is-3">
               <DifficultyDropdown />
-            </div>
-            <div className="column is-3">
+            </div> */}
+            {/* <div className="column is-3"> */}
               <button
                 onClick={handleGenerateQuizClick}
                 className="button is-primary is-rounded is-medium"
               >
                 Generate Quiz
               </button>
-            </div>
-          </div>
+            {/* </div>
+          </div> */}
         </div>
       </section>
       <section className="section">
-        <div className="container">
-          {!questions
-            ? "Generating questions..."
+        <div className="container has-text-centered">
+          {buttonIsClicked && (!questions
+            ? <p className="spinner"></p>
             : questions.map((element: any, i: any) => {
                 return (
                   <ShowQuestions
@@ -83,9 +87,9 @@ function QuizPage() {
                     incorrect={element.incorrect_answers}
                   />
                 );
-              })}
+              }))}
         </div>
-        <div className="has-text-centered">
+        {questions ? <div className="has-text-centered">
           <button
             className="button is-link is-rounded "
             disabled={numberOfAnswers !== 10}
@@ -98,8 +102,9 @@ function QuizPage() {
               You scored: {playerScore}!
             </p>
           )}
-        </div>
+        </div> : ""}
       </section>
+      </body>
     </>
   );
 }

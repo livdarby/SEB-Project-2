@@ -1,7 +1,7 @@
 function About() {
   return (
     <>
-      <div className="card">
+      <div className="card homepage">
         <div className="card-header has-background-primary">
           <h3 className="card-header-title is-centered has-text-white">About</h3>
         </div>
@@ -11,7 +11,7 @@ function About() {
             <p>
               This general knowledge quiz generates 10 random questions each
               time you play and has been built using the{" "}
-              <a href="https://opentdb.com/api_config.php">
+              <a href="https://opentdb.com/api_config.php" target="_blank">
                 Open Trivia Database API.
               </a>
             </p>

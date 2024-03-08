@@ -8,7 +8,7 @@ function Home() {
   return (
     <>
       <body className="background">
-        <section className="section is-large ml-3 mr-3 mt-6">
+        <section className="section is-medium ml-3 mr-3">
           <div className="container">
             <div className="columns">
               <div className="column is-half">

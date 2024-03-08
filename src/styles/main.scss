@@ -1,5 +1,5 @@
-#root {
-  max-height: calc(100vh);
+body {
+  min-height: calc(100vh)
 }
 
 .background {
@@ -8,7 +8,14 @@
   background-size: cover;
 }
 
-.card {
+.background-repeat {
+  background-image: url("../../assets/background.jpeg");
+  background-size: auto;
+  background-repeat: repeat-y;
+  // background-attachment: scroll;
+}
+
+.homepage {
   height: 300px;
 }
 
@@ -19,8 +26,32 @@
   justify-content: center;
 }
 
-// ! example on how to customize, skip to section "Add your own Bulma styles":
-// https://bulma.io/documentation/customize/with-sass-cli/
+.spinner {
+  display: inline-block;
+  width: 80px;
+  height: 80px;
+}
 
-// ? Import bulma, all customizations should live above this line.
+.spinner:after {
+  content: " ";
+  display: block;
+  width: 64px;
+  height: 64px;
+  margin: 8px;
+  border-radius: 50%;
+  border: 6px solid hsl(217, 71%, 53%);
+  border-color: hsl(217, 71%, 53%) transparent hsl(217, 71%, 53%) transparent;
+  animation: spinner 1.2s linear infinite;
+}
+
+@keyframes spinner {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 @import "../../node_modules/bulma/bulma.sass";
