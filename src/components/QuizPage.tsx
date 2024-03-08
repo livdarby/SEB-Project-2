@@ -98,8 +98,8 @@ function QuizPage() {
             Reveal Score
           </button>
           {revealScore && (
-            <p className="has-text-weight-bold mt-3">
-              You scored: {playerScore}!
+            <p className="mt-4 p-2 has-background-link-light">
+              <span className="mt-2 p-2 as-text-centered has-text-weight-bold has-text-link">You scored: {playerScore}!</span>
             </p>
           )}
         </div> : ""}

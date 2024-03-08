@@ -82,13 +82,11 @@ function ShowQuestions({
             </label>
           </div>
         </div>
-      </div>
-      <p className="mt-2 has-text-centered has-text-weight-bold has-text-link-dark">
+      </div>      
         {reveal &&
           (selectedAnswer === correct
-            ? "Correct!"
-            : `Incorrect! Correct answer is ${correct}`)}
-      </p>
+            ? <p className="mt-2 p-2 has-text-centered has-text-weight-bold has-background-success-light has-text-success">Correct!</p>
+            : <p className="mt-2 p-2 has-text-centered has-text-weight-bold has-text-danger has-background-danger-light">Incorrect! Correct answer is {correct}</p>)}
     </div>
   );
 }
