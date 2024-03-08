@@ -1,10 +1,16 @@
-import { Link } from "react-router-dom"
+import { Link } from "react-router-dom";
 
 function QuizButton() {
   return (
-    <button className="button is-large">
-        <Link to="/quiz">Take me to the quiz</Link>
-    </button>
+    <section className="section">
+      <div className="container is-flex is-justify-content-center">
+        <button className="button is-link is-rounded is-large">
+          <Link to="/quiz" className="has-text-white">
+            Take me to the quiz!
+          </Link>
+        </button>
+      </div>
+    </section>
   );
 }
 
