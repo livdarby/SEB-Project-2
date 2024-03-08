@@ -28,57 +28,68 @@ function ShowQuestions({
   }
 
   return (
-    <section className="section">
-      <div className="container">
-        <h6>{question}</h6>
-        <div className="control">
-          <label className="radio">
-            <input
-              disabled={!!selectedAnswer}
-              onChange={handleAnswerSelection}
-              type="radio"
-              name={`answer-${id}`}
-              value={shuffledAnswers[0]}
-            />
-            {shuffledAnswers[0]}
-          </label>
-          <label className="radio">
-            <input
-              disabled={!!selectedAnswer}
-              onChange={handleAnswerSelection}
-              type="radio"
-              name={`answer-${id}`}
-              value={shuffledAnswers[1]}
-            />
-            {shuffledAnswers[1]}
-          </label>
-          <label className="radio">
-            <input
-              disabled={!!selectedAnswer}
-              onChange={handleAnswerSelection}
-              type="radio"
-              name={`answer-${id}`}
-              value={shuffledAnswers[2]}
-            />
-            {shuffledAnswers[2]}
-          </label>
-          <label className="radio">
-            <input
-              disabled={!!selectedAnswer}
-              onChange={handleAnswerSelection}
-              type="radio"
-              name={`answer-${id}`}
-              value={shuffledAnswers[3]}
-            />
-            {shuffledAnswers[3]}
-          </label>
+    <div className="container mb-6">
+      {/* <h6 className="title">{question}</h6> */}
+      <div className="card">
+        <div className="card-header">
+          <div className="card-header-title">{question}</div>
+        </div>
+        <div className="card-content">
+          <div className="control">
+            <label className="radio mr-4">
+              <input
+                className="mr-2"
+                disabled={!!selectedAnswer}
+                onChange={handleAnswerSelection}
+                type="radio"
+                name={`answer-${id}`}
+                value={shuffledAnswers[0]}
+              />
+              {shuffledAnswers[0]}
+            </label>
+            <label className="radio mr-4">
+              <input
+                className="mr-2"
+                disabled={!!selectedAnswer}
+                onChange={handleAnswerSelection}
+                type="radio"
+                name={`answer-${id}`}
+                value={shuffledAnswers[1]}
+              />
+              {shuffledAnswers[1]}
+            </label>
+            <label className="radio mr-4">
+              <input
+                className="mr-2"
+                disabled={!!selectedAnswer}
+                onChange={handleAnswerSelection}
+                type="radio"
+                name={`answer-${id}`}
+                value={shuffledAnswers[2]}
+              />
+              {shuffledAnswers[2]}
+            </label>
+            <label className="radio">
+              <input
+                className="mr-2"
+                disabled={!!selectedAnswer}
+                onChange={handleAnswerSelection}
+                type="radio"
+                name={`answer-${id}`}
+                value={shuffledAnswers[3]}
+              />
+              {shuffledAnswers[3]}
+            </label>
+          </div>
         </div>
       </div>
-      {reveal &&
-        (selectedAnswer === correct
-          ? "Correct!"
-          : `Incorrect! Correct answer is ${correct}`)}
-    </section>
+      <p className="mt-2 has-text-centered has-text-weight-bold has-text-link-dark">
+        {reveal &&
+          (selectedAnswer === correct
+            ? "Correct!"
+            : `Incorrect! Correct answer is ${correct}`)}
+      </p>
+    </div>
   );
 }
 

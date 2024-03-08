@@ -58,7 +58,7 @@ function QuizPage() {
             <div className="column is-3">
               <button
                 onClick={handleGenerateQuizClick}
-                className="button is-primary"
+                className="button is-primary is-rounded is-medium"
               >
                 Generate Quiz
               </button>
@@ -85,15 +85,21 @@ function QuizPage() {
                 );
               })}
         </div>
+        <div className="has-text-centered">
+          <button
+            className="button is-link is-rounded "
+            disabled={numberOfAnswers !== 10}
+            onClick={revealScoreClick}
+          >
+            Reveal Score
+          </button>
+          {revealScore && (
+            <p className="has-text-weight-bold mt-3">
+              You scored: {playerScore}!
+            </p>
+          )}
+        </div>
       </section>
-      <button
-        className="button"
-        disabled={numberOfAnswers !== 10}
-        onClick={revealScoreClick}
-      >
-        Reveal score
-      </button>
-      {revealScore && <p>Score is: {playerScore}</p>}
     </>
   );
 }
