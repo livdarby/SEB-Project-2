@@ -13,7 +13,12 @@ function QuizPage() {
 
   const [numberOfAnswers, setNumberOfAnswers] = React.useState(0);
 
-  const [buttonIsClicked, setButtonIsClicked] = React.useState(false)
+  const [buttonIsClicked, setButtonIsClicked] = React.useState(false);
+
+  const [highScore, setHighScore] = React.useState(
+    localStorage.getItem("highscore")
+  );
+  console.log(`high score is ${highScore}`);
 
   function handlePlayerScoreIncrease() {
     setPlayerScore(playerScore + 1);
@@ -21,18 +26,19 @@ function QuizPage() {
 
   function revealScoreClick() {
     setRevealScore(true);
+    if (Number(highScore) === 0 || Number(highScore) < playerScore) {
+      console.log("new high score!");
+      localStorage.setItem("highscore", playerScore);
+      setHighScore(playerScore);
+    }
   }
 
   function increaseAnswers() {
     setNumberOfAnswers(numberOfAnswers + 1);
   }
 
-  // 1) piece of state that we can update for the players selected answer
-  // 2) this starts as an empty array
-  // 3) object shape with id property, isCorrect
-
   function handleGenerateQuizClick() {
-    setButtonIsClicked(true)
+    setButtonIsClicked(true);
     fetchQuiz();
     setRevealScore(false);
     setPlayerScore(0);
@@ -49,10 +55,10 @@ function QuizPage() {
 
   return (
     <>
-    <body className="background-repeat">         
-      <section className="section">
-        <div className="container has-text-centered">
-          {/* <div className="columns">
+      <body className="background-repeat">
+        <section className="section">
+          <div className="container has-text-centered">
+            {/* <div className="columns">
             <div className="column is-3">
               <CategoryDropdown />
             </div>
@@ -60,50 +66,60 @@ function QuizPage() {
               <DifficultyDropdown />
             </div> */}
             {/* <div className="column is-3"> */}
-              <button
-                onClick={handleGenerateQuizClick}
-                className="button is-primary is-rounded is-medium"
-              >
-                Generate Quiz
-              </button>
+            <button
+              onClick={handleGenerateQuizClick}
+              className="button is-primary is-rounded is-medium"
+            >
+              Generate Quiz
+            </button>
             {/* </div>
           </div> */}
-        </div>
-      </section>
-      <section className="section">
-        <div className="container has-text-centered">
-          {buttonIsClicked && (!questions
-            ? <p className="spinner"></p>
-            : questions.map((element: any, i: any) => {
-                return (
-                  <ShowQuestions
-                    increaseFunction={handlePlayerScoreIncrease}
-                    increaseNoOfAnswers={increaseAnswers}
-                    reveal={revealScore}
-                    key={element.question}
-                    id={i}
-                    question={element.question}
-                    correct={element.correct_answer}
-                    incorrect={element.incorrect_answers}
-                  />
-                );
-              }))}
-        </div>
-        {questions ? <div className="has-text-centered">
-          <button
-            className="button is-link is-rounded "
-            disabled={numberOfAnswers !== 10}
-            onClick={revealScoreClick}
-          >
-            Reveal Score
-          </button>
-          {revealScore && (
-            <p className="has-text-weight-bold mt-3">
-              You scored: {playerScore}!
-            </p>
+          </div>
+        </section>
+        <section className="section">
+          <div className="container has-text-centered">
+            {buttonIsClicked &&
+              (!questions ? (
+                <p className="spinner"></p>
+              ) : (
+                questions.map((element: any, i: any) => {
+                  return (
+                    <ShowQuestions
+                      increaseFunction={handlePlayerScoreIncrease}
+                      increaseNoOfAnswers={increaseAnswers}
+                      reveal={revealScore}
+                      key={element.question}
+                      id={i}
+                      question={element.question}
+                      correct={element.correct_answer}
+                      incorrect={element.incorrect_answers}
+                    />
+                  );
+                })
+              ))}
+          </div>
+          {questions ? (
+            <div className="has-text-centered">
+              <button
+                className="button is-link is-rounded "
+                disabled={numberOfAnswers !== 10}
+                onClick={revealScoreClick}
+              >
+                Reveal Score
+              </button>
+              {revealScore && (
+                <p className="has-text-weight-bold mt-3">
+                  You scored: {playerScore}!
+                </p>
+              )}
+            </div>
+          ) : (
+            ""
           )}
-        </div> : ""}
-      </section>
+          {revealScore && playerScore > Number(highScore) && (
+            <p>New high score of {playerScore}</p>
+          )}
+        </section>
       </body>
     </>
   );

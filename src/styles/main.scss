@@ -1,5 +1,5 @@
 body {
-  min-height: calc(100vh)
+  min-height: calc(100vh);
 }
 
 .background {
@@ -12,6 +12,7 @@ body {
   background-image: url("../../assets/background.jpeg");
   background-size: auto;
   background-repeat: repeat-y;
+  background-position: center;
   // background-attachment: scroll;
 }
 
