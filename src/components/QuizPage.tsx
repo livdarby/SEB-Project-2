@@ -2,6 +2,7 @@ import React from "react";
 import CategoryDropdown from "./CategoryDropdown";
 import DifficultyDropdown from "./DifficultyDropdown";
 import ShowQuestions from "./ShowQuestions";
+import Confetti from "react-confetti";
 
 function QuizPage() {
   const [questions, setQuestions] = React.useState(null as any);
@@ -50,6 +51,7 @@ function QuizPage() {
       "https://opentdb.com/api.php?amount=10&type=multiple"
     );
     const data = await resp.json();
+    // remove quote strings
     setQuestions(data.results);
   }
 
@@ -57,6 +59,7 @@ function QuizPage() {
     <>
       <body className="background-repeat">
         <section className="section">
+          {revealScore && <Confetti />}
           <div className="container has-text-centered">
             {/* <div className="columns">
             <div className="column is-3">
