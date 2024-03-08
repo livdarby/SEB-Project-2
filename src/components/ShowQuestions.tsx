@@ -8,13 +8,13 @@ function ShowQuestions({
   id,
   increaseFunction,
   increaseNoOfAnswers,
-}) {
+}: any) {
   const allAnswers = [...incorrect, correct];
   console.log("All answers are: ", allAnswers);
   const shuffledAnswers = [...allAnswers].sort();
   console.log("Shuffled answers are: ", shuffledAnswers);
 
-  const [selectedAnswer, setSelectedAnswer] = React.useState(null);
+  const [selectedAnswer, setSelectedAnswer] = React.useState(null as any);
   console.log(selectedAnswer);
 
   function handleAnswerSelection(e: any) {

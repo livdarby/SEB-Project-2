@@ -4,7 +4,7 @@ import DifficultyDropdown from "./DifficultyDropdown";
 import ShowQuestions from "./ShowQuestions";
 
 function QuizPage() {
-  const [questions, setQuestions] = React.useState(null);
+  const [questions, setQuestions] = React.useState(null as any);
   console.log(questions);
 
   const [playerScore, setPlayerScore] = React.useState(0);
@@ -70,7 +70,7 @@ function QuizPage() {
         <div className="container">
           {!questions
             ? "Generating questions..."
-            : questions.map((element, i) => {
+            : questions.map((element: any, i: any) => {
                 return (
                   <ShowQuestions
                     increaseFunction={handlePlayerScoreIncrease}
