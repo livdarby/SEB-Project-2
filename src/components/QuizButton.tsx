@@ -6,7 +6,7 @@ function QuizButton() {
       <div className="container is-flex is-justify-content-center">
         <button className="button is-link is-rounded is-large">
           <Link to="/quiz" className="has-text-white">
-            Take me to the quiz!
+            Take me to the quiz! - Testing Deployments.
           </Link>
         </button>
       </div>
